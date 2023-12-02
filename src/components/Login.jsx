@@ -1,7 +1,8 @@
 import React from "react";
-import { registerUser } from "../api/ajaxHelper";
+import { loginUser } from "../api/ajaxHelper";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import loginSide from "../assets/login.jpg";
 
 export default function Login({ setToken }) {
   const [email, setEmail] = useState("");
@@ -15,7 +16,7 @@ export default function Login({ setToken }) {
       email,
       password,
     };
-    const token = await registerUser(userObj);
+    const token = await loginUser(userObj);
     setToken(token);
     navigate("/account");
 
@@ -24,26 +25,33 @@ export default function Login({ setToken }) {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Email:{" "}
-          <input
-            value={email}
-            onChange={(event) => {
-              setEmail(event.target.value);
-            }}
-          />
-        </label>
-        <label>
-          Password:{" "}
-          <input
-            type="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </label>
-        <button type="submit">Register</button>
-      </form>
+      <div className="login-container">
+        <div className="login-content">
+          <img className="login-side-img" src={loginSide} />
+          <form className="login-form" onSubmit={handleSubmit}>
+            <label>
+              <input
+                placeholder="Email"
+                value={email}
+                onChange={(event) => {
+                  setEmail(event.target.value);
+                }}
+              />
+            </label>
+            <label>
+              <input
+                placeholder="Password"
+                type="password"
+                value={password}
+                onChange={(event) => {
+                  setPassword(event.target.value);
+                }}
+              />
+            </label>
+            <button type="submit">Login</button>
+          </form>
+        </div>
+      </div>
     </>
   );
 }

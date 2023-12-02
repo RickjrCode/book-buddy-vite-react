@@ -2,6 +2,7 @@ import React from "react";
 import { registerUser } from "../api/ajaxHelper";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import sideBooks from "../assets/form-books.jpg";
 
 export default function Register({ setToken }) {
   const [firstname, setFirstName] = useState("");
@@ -22,49 +23,61 @@ export default function Register({ setToken }) {
     const token = await registerUser(userObj);
     setToken(token);
     navigate("/account");
+
     console.log(userObj);
   }
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <label>
-          First Name:{" "}
-          <input
-            value={firstname}
-            onChange={(event) => {
-              setFirstName(event.target.value);
-            }}
-          />
-        </label>
-        <label>
-          Last Name:{" "}
-          <input
-            value={lastname}
-            onChange={(event) => {
-              setLastName(event.target.value);
-            }}
-          />
-        </label>
-        <label>
-          Email:{" "}
-          <input
-            value={email}
-            onChange={(event) => {
-              setEmail(event.target.value);
-            }}
-          />
-        </label>
-        <label>
-          Password:{" "}
-          <input
-            type="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </label>
-        <button type="submit">Register</button>
-      </form>
-    </>
+    <div className="register">
+      <div className="content">
+        <img className="side-pic" src={sideBooks} />
+        <form className="form-style" onSubmit={handleSubmit}>
+          <div className="input-group">
+            <input
+              placeholder="First Name"
+              type="name"
+              value={firstname}
+              onChange={(event) => {
+                setFirstName(event.target.value);
+              }}
+            />
+          </div>
+
+          <div className="input-group">
+            <input
+              placeholder="Last Name"
+              type="text"
+              value={lastname}
+              onChange={(event) => {
+                setLastName(event.target.value);
+              }}
+            />
+          </div>
+
+          <div className="input-group">
+            <input
+              placeholder="Email"
+              type="email"
+              value={email}
+              onChange={(event) => {
+                setEmail(event.target.value);
+              }}
+            />
+          </div>
+
+          <div className="input-group">
+            <input
+              placeholder="Password"
+              type="password"
+              value={password}
+              onChange={(event) => {
+                setPassword(event.target.value);
+              }}
+            />
+          </div>
+          <button type="submit">Register</button>
+        </form>
+      </div>
+    </div>
   );
 }
