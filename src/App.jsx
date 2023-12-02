@@ -1,5 +1,5 @@
 import { useState } from "react";
-import bookLogo from "./assets/books.png";
+
 import {
   Account,
   Books,
@@ -15,11 +15,10 @@ function App() {
 
   return (
     <>
-      <h1>Book Buddy</h1>
       <Navigation />
       <Routes>
-        <Route path="/" element={<h2>Home</h2>} />
-        <Route path="/account" element={<Account />} />
+        <Route path="/" element={<Books />} />
+        <Route path="/account" element={<Account token={token} />} />
         <Route path="/login" element={<Login setToken={setToken} />} />
         <Route path="/register" element={<Register setToken={setToken} />} />
       </Routes>

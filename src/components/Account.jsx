@@ -14,12 +14,17 @@ export default function Account({ token }) {
     fetchUser();
   }, []);
 
-  return;
-  user ? (
+  return user ? (
     <>
       <div>
-        <h3>{user.name}</h3>
+        <h3>
+          {user.firstname} {user.lastname} - ({user.email}){" "}
+        </h3>
       </div>
     </>
-  ) : null;
+  ) : (
+    <div className="else-type">
+      <p>Register now to create an account!</p>
+    </div>
+  );
 }

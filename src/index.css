@@ -1,11 +1,175 @@
 body {
-  font-family: Georgia, serif;
-  background-color: #f8f8f8;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100vh;
+  background-color: #f0f0f0;
 }
 
 #logo-image {
-  width: 30px;
-  margin-right: 10px;
+  width: 40px;
+  margin-right: 0;
+}
+
+nav {
+  width: 90%;
+  margin: auto;
+  padding: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  text-decoration: none;
+  font-size: 40px;
+  font-weight: bold;
+  font-family: Pacifico;
+}
+
+.else-type {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  font-family: system-ui;
+}
+
+nav ul li {
+  font-size: 18px;
+  list-style: none;
+  display: inline-block;
+  margin: 0 10px;
+  position: relative;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: teal;
+  text-transform: uppercase;
+}
+
+nav ul li::before {
+  content: "";
+  height: 3px;
+  width: 0;
+  background: #45a049;
+  position: absolute;
+  bottom: -10px;
+  transition: 0.5s;
+}
+
+nav ul li:hover:before {
+  width: 100%;
+}
+
+.register {
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+}
+
+.side-pic {
+  width: 50%;
+  height: 33vh;
+  margin-right: 20px;
+  border-radius: 10px;
+}
+
+.form-style {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.login-content {
+  display: flex;
+  align-items: center;
+}
+
+.login-side-img {
+  width: 50%;
+  height: 33vh;
+  margin-right: 20px;
+  border-radius: 10px;
+}
+
+.login-container {
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.login-form {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.books-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-size: 40px;
+}
+
+.books-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.book-card {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  margin: 1em;
+  padding: 1em;
+  border: 3px solid #45a049;
+  border-radius: 10px;
+}
+
+.book-card img {
+  width: 100%;
+  border: 2px solid #45a049;
+  border-radius: 10px;
 }

@@ -11,6 +11,7 @@ export async function registerUser(userObj) {
     });
 
     const json = await resp.json();
+    console.log(json.token);
     return json.token;
   } catch (err) {
     console.error(err);
@@ -38,12 +39,30 @@ export async function getUser(token) {
   try {
     const resp = await fetch(`${API_URL}/users/me`, {
       headers: {
-        "content-Type": "application/json",
+        "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
     });
+
     const json = await resp.json();
     console.log(json);
+    return json;
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+export async function fetchBooks() {
+  try {
+    const resp = await fetch(`${API_URL}/books`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const json = await resp.json();
+    console.log(json);
+    return json.books;
   } catch (err) {
     console.error(err);
   }
