@@ -48,17 +48,20 @@ export default function Account({ user }) {
       </p>
     </>
   ) : (
-    <div className="account-text">
-      <p>You must be logged in to view this page!</p>
-      <button
-        className="button"
-        type="submit"
-        onClick={() => {
-          navigate("/register");
-        }}
-      >
-        Signup Here!
-      </button>
-    </div>
+    <>
+      <div div className="else-type">
+        <p>You must be logged in to view this page!</p>
+
+        <button
+          className="button"
+          type="submit"
+          onClick={() => {
+            navigate("/register");
+          }}
+        >
+          Signup Here!
+        </button>
+      </div>
+    </>
   );
 }
