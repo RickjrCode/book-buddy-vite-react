@@ -67,3 +67,27 @@ export async function fetchBooks() {
     console.error(err);
   }
 }
+
+export async function checkoutBook(id, token) {
+  try {
+    const rsp = await fetch(`${API_URL}/books/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Typer": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const json = await rsp.json();
+    return json;
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+export const fetchSingleBook = async (bookId) => {
+  try {
+    const rsp = await fetch(`${API_URL}/books/${bookId}`);
+    const json = await rsp.json();
+    return json.book;
+  } catch (err) {}
+};
