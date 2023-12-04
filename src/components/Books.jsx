@@ -1,11 +1,13 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { fetchBooks } from "../api/ajaxHelper";
+import { useNavigate } from "react-router-dom";
 
 export default function Books() {
   const [books, setBooks] = useState([]);
   const [searchBook, setSearchBook] = useState("");
   const [storedBook, setStoredBook] = useState([]);
+  const navigate = useNavigate();
   console.log(books);
 
   const filteredBooks = storedBook.filter((book) => {
@@ -51,9 +53,14 @@ export default function Books() {
               <img src={book.coverimage} alt={book.title} />
               <p>{book.author}</p>
               <p>{book.description}</p>
-              <p>
-                {book.available ? <strong>"Available"</strong> : "Checked Out"}
-              </p>
+              <button
+                className="button"
+                onClick={() => {
+                  navigate(`/books/${book.id}`);
+                }}
+              >
+                Check Availability
+              </button>
             </div>
           ))}
         </div>
